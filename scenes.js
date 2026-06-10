@@ -254,14 +254,17 @@ function drawRainbowPathScreen() {
 
   fill(200);
   textSize(12);
-  textLeading(10);
+  textLeading(22);
   textAlign(CENTER, TOP);
   text(
     "You follow the rainbow path.\n\n" +
-      "Halfway up the mountain, you find a giant squirrel crying \n\n" + 
+      "Halfway up the mountain, you find a giant squirrel crying \n\n" +
       "beside a glowing dial stuck on \"Embarrassed ↔ Furious.\"\n\n" +
       "Someone at the festival told the squirrel its handmade acorn hat looked \"weird.\"",
-    width / 2,, 110      );
+    width / 2,
+    110,
+    700,
+  );
 
   let option1 = "Tell the squirrel the hat is amazing.";
   let option2 = "Offer to wear an acorn hat too.";
