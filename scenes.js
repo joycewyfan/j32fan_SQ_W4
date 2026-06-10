@@ -244,11 +244,11 @@ function drawRainbowPathScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(42);
-  text("Rainbow Path", width / 2, 70);
+  text("Rainbow Path", width / 2, 60);
 
   fill(200);
   textSize(12);
-  textLeading(5);
+  textLeading(10);
   textAlign(CENTER, TOP);
   text(
     "You follow the rainbow path.\n\n" +
@@ -261,8 +261,8 @@ function drawRainbowPathScreen() {
 
   let option1 = "Tell the squirrel the hat is amazing.";
   let option2 = "Offer to wear an acorn hat too.";
-  let buttonW = 340;
-  let buttonH = 90;
+  let buttonW = 280;
+  let buttonH = 70;
   let buttonY = 360;
 
   drawButton(
@@ -291,7 +291,7 @@ function drawForestShortcutScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(42);
-  text("Forest Shortcut", width / 2, 70);
+  text("Forest Shortcut", width / 2, 60);
 
   fill(200);
   textSize(16);
@@ -305,8 +305,8 @@ function drawForestShortcutScreen() {
 
   let option1 = "Patiently wait your turn.";
   let option2 = "Challenge the snail to a race.";
-  let buttonW = 340;
-  let buttonH = 90;
+  let buttonW = 280;
+  let buttonH = 70;
   let buttonY = 360;
 
   drawButton(
