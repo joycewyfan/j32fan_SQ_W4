@@ -247,15 +247,16 @@ function drawRainbowPathScreen() {
   text("Rainbow Path", width / 2, 70);
 
   fill(200);
-  textSize(16);
-  textLeading(24);
+  textSize(12);
+  textLeading(5);
+  textAlign(CENTER, TOP);
   text(
     "You follow the rainbow path.\n\n" +
-      "Halfway up the mountain, you find a giant squirrel crying beside a glowing dial stuck on “Embarrassed ↔ Furious.”\n\n" +
-      "Someone at the festival told the squirrel its handmade acorn hat looked “weird.”",
+      "Halfway up the mountain, you find a giant squirrel crying \n\n" + 
+      "beside a glowing dial stuck on \"Embarrassed ↔ Furious.\"\n\n" +
+      "Someone at the festival told the squirrel its handmade acorn hat looked \"weird.\"",
     width / 2,
     110,
-    720,
   );
 
   let option1 = "Tell the squirrel the hat is amazing.";
@@ -299,7 +300,7 @@ function drawForestShortcutScreen() {
     "The shortcut is blocked by a snail directing traffic. The snail moves at the speed of existential dread. A huge line has formed behind it. Everyone looks mildly annoyed but too polite to complain.",
     width / 2,
     110,
-    720,
+    700,
   );
 
   let option1 = "Patiently wait your turn.";
@@ -324,140 +325,6 @@ function drawForestShortcutScreen() {
     option2,
     isMouseOver(width * 0.75, buttonY, buttonW, buttonH),
   );
-}
-
-// ------------------------------------------------------------
-// drawHUD()
-// HUD = Heads Up Display.
-// Shows the current round number and scores at the top.
-// Reads currentRound, MAX_ROUNDS, playerScore, and npcScore
-// from game.js via shared global scope.
-// ------------------------------------------------------------
-function drawHUD() {
-  noStroke();
-
-  // Round indicator — centred at the top
-  fill(160);
-  textSize(14);
-  textAlign(CENTER);
-  text("Round " + currentRound + " of " + MAX_ROUNDS, width / 2, 30);
-
-  // Player score (left side)
-  fill(0, 200, 180);
-  textSize(28);
-  textAlign(LEFT);
-  text(playerScore, 60, 35);
-
-  fill(160);
-  textSize(13);
-  text("You", 60, 52);
-
-  // NPC score (right side)
-  fill(255, 150, 30);
-  textSize(28);
-  textAlign(RIGHT);
-  text(npcScore, width - 60, 35);
-
-  fill(160);
-  textSize(13);
-  text("NPC", width - 60, 52);
-
-  // Dividing line under the HUD
-  stroke(40);
-  strokeWeight(1);
-  line(0, 60, width, 60);
-}
-
-// ------------------------------------------------------------
-// drawGameScreen(playerBlobT, npcBlobT)
-// The main gameplay screen shown during STATE_PLAY.
-// Shows the HUD, blobs, choice buttons, and round result.
-// playerBlobT and npcBlobT are passed in from sketch.js
-// so the blobs animate continuously across all screens.
-// ------------------------------------------------------------
-function drawGameScreen(playerBlobT, npcBlobT) {
-  drawHUD();
-
-  // Blobs
-  drawBlob(220, 190, 50, color(0, 200, 180), playerBlobT);
-  drawBlob(580, 190, 50, color(255, 150, 30), npcBlobT);
-
-  fill(180);
-  noStroke();
-  textAlign(CENTER);
-  textSize(14);
-  text("You", 220, 265);
-  text("NPC", 580, 265);
-
-  // playerChoice is null before the player picks — set in game.js
-  if (playerChoice !== null) {
-    // Show what each side chose
-    fill(200);
-    textSize(18);
-    textAlign(CENTER);
-    text(playerChoice.toUpperCase(), 220, 300);
-    text(npcChoice.toUpperCase(), 580, 300);
-
-    // Show the round result
-    drawRoundResult();
-
-    // Button label changes depending on whether the game is over
-    let btnLabel =
-      currentRound < MAX_ROUNDS && !gameOver ? "Next Round" : "See Result";
-    drawButton(
-      width / 2,
-      390,
-      200,
-      52,
-      btnLabel,
-      isMouseOver(width / 2, 390, 200, 52),
-    );
-  } else {
-    // Show choice buttons before the player has picked
-    fill(160);
-    textSize(14);
-    textAlign(CENTER);
-    text("Make your choice", width / 2, 295);
-
-    let labels = ["ROCK", "PAPER", "SCISSORS"];
-    for (let i = 0; i < 3; i++) {
-      drawButton(
-        BTN_POSITIONS[i],
-        BTN_Y,
-        BTN_W,
-        BTN_H,
-        labels[i],
-        isMouseOver(BTN_POSITIONS[i], BTN_Y, BTN_W, BTN_H),
-      );
-    }
-  }
-}
-
-// ------------------------------------------------------------
-// drawRoundResult()
-// Shows the win/lose/draw result for the current round.
-// roundResult is set in game.js after the player picks.
-// ------------------------------------------------------------
-function drawRoundResult() {
-  push();
-  textAlign(CENTER);
-  noStroke();
-
-  if (roundResult === "win") {
-    fill(0, 220, 180);
-    textSize(36);
-    text("You Win This Round!", width / 2, 345);
-  } else if (roundResult === "lose") {
-    fill(255, 120, 30);
-    textSize(36);
-    text("NPC Wins This Round!", width / 2, 345);
-  } else {
-    fill(220);
-    textSize(36);
-    text("Draw!", width / 2, 345);
-  }
-
-  pop();
 }
 
 // ------------------------------------------------------------
