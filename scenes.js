@@ -254,7 +254,7 @@ function drawRainbowPathScreen() {
 
   fill(200);
   textSize(12);
-  textLeading(22);
+  textLeading(10);
   textAlign(CENTER, TOP);
   text(
     "You follow the rainbow path.\n\n" +
@@ -263,7 +263,6 @@ function drawRainbowPathScreen() {
       "Someone at the festival told the squirrel its handmade acorn hat looked \"weird.\"",
     width / 2,
     110,
-    700,
   );
 
   let option1 = "Tell the squirrel the hat is amazing.";
@@ -298,7 +297,7 @@ function drawForestShortcutScreen() {
   if (forestShortcutImg) {
     image(forestShortcutImg, 0, 0, width, height);
     noStroke();
-    fill(0, 100);
+    fill(0);
     rect(0, 0, width, height);
   }
 
@@ -309,12 +308,11 @@ function drawForestShortcutScreen() {
 
   fill(200);
   textSize(16);
-  textLeading(24);
+  textLeading(10);
   text(
     "The shortcut is blocked by a snail directing traffic. The snail moves at the speed of existential dread. A huge line has formed behind it. Everyone looks mildly annoyed but too polite to complain.",
     width / 2,
     110,
-    700,
   );
 
   let option1 = "Patiently wait your turn.";
