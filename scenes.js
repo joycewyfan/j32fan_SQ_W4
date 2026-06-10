@@ -237,6 +237,96 @@ function drawOptionScreen() {
 }
 
 // ------------------------------------------------------------
+// drawRainbowPathScreen()
+// Shows the story after choosing the rainbow path.
+// ------------------------------------------------------------
+function drawRainbowPathScreen() {
+  fill(255);
+  textAlign(CENTER);
+  textSize(42);
+  text("Rainbow Path", width / 2, 70);
+
+  fill(200);
+  textSize(16);
+  textLeading(24);
+  text(
+    "You follow the rainbow path.\n\n" +
+      "Halfway up the mountain, you find a giant squirrel crying beside a glowing dial stuck on “Embarrassed ↔ Furious.”\n\n" +
+      "Someone at the festival told the squirrel its handmade acorn hat looked “weird.”",
+    width / 2,
+    110,
+    720,
+  );
+
+  let option1 = "Tell the squirrel the hat is amazing.";
+  let option2 = "Offer to wear an acorn hat too.";
+  let buttonW = 340;
+  let buttonH = 90;
+  let buttonY = 360;
+
+  drawButton(
+    width * 0.25,
+    buttonY,
+    buttonW,
+    buttonH,
+    option1,
+    isMouseOver(width * 0.25, buttonY, buttonW, buttonH),
+  );
+  drawButton(
+    width * 0.75,
+    buttonY,
+    buttonW,
+    buttonH,
+    option2,
+    isMouseOver(width * 0.75, buttonY, buttonW, buttonH),
+  );
+}
+
+// ------------------------------------------------------------
+// drawForestShortcutScreen()
+// Shows the story after choosing the forest shortcut.
+// ------------------------------------------------------------
+function drawForestShortcutScreen() {
+  fill(255);
+  textAlign(CENTER);
+  textSize(42);
+  text("Forest Shortcut", width / 2, 70);
+
+  fill(200);
+  textSize(16);
+  textLeading(24);
+  text(
+    "The shortcut is blocked by a snail directing traffic. The snail moves at the speed of existential dread. A huge line has formed behind it. Everyone looks mildly annoyed but too polite to complain.",
+    width / 2,
+    110,
+    720,
+  );
+
+  let option1 = "Patiently wait your turn.";
+  let option2 = "Challenge the snail to a race.";
+  let buttonW = 340;
+  let buttonH = 90;
+  let buttonY = 360;
+
+  drawButton(
+    width * 0.25,
+    buttonY,
+    buttonW,
+    buttonH,
+    option1,
+    isMouseOver(width * 0.25, buttonY, buttonW, buttonH),
+  );
+  drawButton(
+    width * 0.75,
+    buttonY,
+    buttonW,
+    buttonH,
+    option2,
+    isMouseOver(width * 0.75, buttonY, buttonW, buttonH),
+  );
+}
+
+// ------------------------------------------------------------
 // drawHUD()
 // HUD = Heads Up Display.
 // Shows the current round number and scores at the top.

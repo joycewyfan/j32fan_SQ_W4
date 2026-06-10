@@ -24,6 +24,8 @@
 // ------------------------------------------------------------
 const STATE_START = "start";
 const STATE_OPTION = "option";
+const STATE_RAINBOW_PATH = "rainbow_path";
+const STATE_FOREST_SHORTCUT = "forest_shortcut";
 const STATE_PLAY  = "play";
 const STATE_OVER  = "over";
 
@@ -89,6 +91,10 @@ function draw() {
     drawStartScreen();
   } else if (gameState === STATE_OPTION) {
     drawOptionScreen();
+  } else if (gameState === STATE_RAINBOW_PATH) {
+    drawRainbowPathScreen();
+  } else if (gameState === STATE_FOREST_SHORTCUT) {
+    drawForestShortcutScreen();
   } else if (gameState === STATE_PLAY) {
     drawGameScreen(playerBlobT, npcBlobT);
   } else if (gameState === STATE_OVER) {
@@ -116,6 +122,34 @@ function mousePressed() {
 
   // --- Option screen ---
   else if (gameState === STATE_OPTION) {
+    let buttonW = 340;
+    let buttonH = 90;
+    let buttonY = 360;
+
+    if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
+      gameState = STATE_RAINBOW_PATH;
+    }
+    if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
+      gameState = STATE_FOREST_SHORTCUT;
+    }
+  }
+
+  // --- Rainbow branch screen ---
+  else if (gameState === STATE_RAINBOW_PATH) {
+    let buttonW = 340;
+    let buttonH = 90;
+    let buttonY = 360;
+
+    if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
+      gameState = STATE_PLAY;
+    }
+    if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
+      gameState = STATE_PLAY;
+    }
+  }
+
+  // --- Forest branch screen ---
+  else if (gameState === STATE_FOREST_SHORTCUT) {
     let buttonW = 340;
     let buttonH = 90;
     let buttonY = 360;
