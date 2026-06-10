@@ -241,6 +241,12 @@ function drawOptionScreen() {
 // Shows the story after choosing the rainbow path.
 // ------------------------------------------------------------
 function drawRainbowPathScreen() {
+  if (rainbowPathImg) {
+    image(rainbowPathImg, 0, 0, width, height);
+    noStroke();
+    rect(0, 0, width, height);
+  }
+
   fill(255);
   textAlign(CENTER);
   textSize(42);
@@ -255,9 +261,7 @@ function drawRainbowPathScreen() {
       "Halfway up the mountain, you find a giant squirrel crying \n\n" + 
       "beside a glowing dial stuck on \"Embarrassed ↔ Furious.\"\n\n" +
       "Someone at the festival told the squirrel its handmade acorn hat looked \"weird.\"",
-    width / 2,
-    110,
-  );
+    width / 2,, 110      );
 
   let option1 = "Tell the squirrel the hat is amazing.";
   let option2 = "Offer to wear an acorn hat too.";
@@ -288,6 +292,13 @@ function drawRainbowPathScreen() {
 // Shows the story after choosing the forest shortcut.
 // ------------------------------------------------------------
 function drawForestShortcutScreen() {
+  if (forestShortcutImg) {
+    image(forestShortcutImg, 0, 0, width, height);
+    noStroke();
+    fill(0, 100);
+    rect(0, 0, width, height);
+  }
+
   fill(255);
   textAlign(CENTER);
   textSize(42);

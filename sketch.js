@@ -56,6 +56,8 @@ const BTN_Y = 360;
 // ------------------------------------------------------------
 let startScreenImg;
 let optionScreenImg;
+let rainbowPathImg;
+let forestShortcutImg;
 
 // ============================================================
 // preload()
@@ -64,6 +66,8 @@ let optionScreenImg;
 function preload() {
   startScreenImg = loadImage("assets/images/startscreen.png");
   optionScreenImg = loadImage("assets/images/Opening_screen.png");
+  rainbowPathImg = loadImage("assets/images/Rainbow Path.png");
+  forestShortcutImg = loadImage("assets/images/Forest Shortcut.png");
 }
 
 // ============================================================
