@@ -82,8 +82,10 @@ function drawButton(x, y, w, h, label, isHovered) {
   fill(255);
   noStroke();
   textAlign(CENTER, CENTER);
-  textSize(18);
-  text(label, x, y);
+  textSize(12);
+  textWrap(WORD);
+  textLeading(22);
+  text(label, x, y, w - 24, h - 16);
 
   pop();
 }
@@ -110,7 +112,14 @@ function isMouseOver(x, y, w, h) {
 // game starts. frameCount is a built-in p5.js variable
 // that increases by 1 every frame.
 // ------------------------------------------------------------
-function drawStartScreen() {
+function drawStartScreen() {  // Background image
+  if (startScreenImg) {
+    image(startScreenImg, 0, 0, width, height);
+    filter(BLUR, 3);
+    noStroke();
+    fill(0, 80);
+    rect(0, 0, width, height);
+  }
   // Title 
   // Story text
   fill(255);
@@ -126,12 +135,12 @@ function drawStartScreen() {
     "Your family already left without you because you overslept. You need to reach the festival to reunite with them.\n\n" +
     "A small cat with a scar over one eye hops toward you.\n\n" +
     "Unfortunately, your day is already going wrong. What do you do?";
-  text(story, 80, 130, 340, 260);
+  text(story, 80, 100, 340, 260);
 
   // Blobs — animated using frameCount since blobT isn't
   // available here (it lives in sketch.js)
-  drawBlob(220, 325, 50, color(0, 200, 180), frameCount * 0.015);
-  drawBlob(580, 300, 50, color(255, 150, 30), frameCount * 0.015 + 50);
+  drawBlob(480, 300, 50, color(0, 200, 180), frameCount * 0.015);
+  drawBlob(600, 300, 50, color(255, 150, 30), frameCount * 0.015 + 50);
 
   // Potty label for the orange blob
   fill(255, 220, 0);
@@ -170,6 +179,60 @@ function drawStartScreen() {
     52,
     "Start Adventure",
     isMouseOver(width / 2, 390, 200, 52),
+  );
+}
+
+// ------------------------------------------------------------
+// drawOptionScreen()
+// The screen shown after the start button is pressed.
+// It offers two story path choices before the main game.
+// ------------------------------------------------------------
+function drawOptionScreen() {
+  if (optionScreenImg) {
+    image(optionScreenImg, 0, 0, width, height);
+    noStroke();
+    fill(0, 100);
+    rect(0, 0, width, height);
+  }
+
+  fill(255);
+  textAlign(CENTER);
+  textSize(42);
+  text("What do you do?", width / 2, 90);
+
+  fill(190);
+  textSize(12);
+  textLeading(22);
+  text(
+    "Before you climb Spectrum Peak, choose how you want to reach the festival on the peak.",
+    width / 2,
+    120,
+  );
+
+  let option1 =
+    "Follow a mysterious rainbow-coloured path leading to the festival on the peak.";
+  let option2 =
+    "Take a shortcut through the Forest of Minor Inconveniences.";
+
+  let buttonW = 340;
+  let buttonH = 90;
+  let buttonY = 360;
+
+  drawButton(
+    width * 0.25,
+    buttonY,
+    buttonW,
+    buttonH,
+    option1,
+    isMouseOver(width * 0.25, buttonY, buttonW, buttonH),
+  );
+  drawButton(
+    width * 0.75,
+    buttonY,
+    buttonW,
+    buttonH,
+    option2,
+    isMouseOver(width * 0.75, buttonY, buttonW, buttonH),
   );
 }
 

@@ -23,6 +23,7 @@
 // silently using the wrong string.
 // ------------------------------------------------------------
 const STATE_START = "start";
+const STATE_OPTION = "option";
 const STATE_PLAY  = "play";
 const STATE_OVER  = "over";
 
@@ -45,6 +46,23 @@ const BTN_POSITIONS = [200, 400, 600];
 const BTN_W = 150;
 const BTN_H = 52;
 const BTN_Y = 360;
+
+// ------------------------------------------------------------
+// IMAGE ASSETS
+// Loaded in preload() before setup() runs.
+// Available globally to all drawing functions.
+// ------------------------------------------------------------
+let startScreenImg;
+let optionScreenImg;
+
+// ============================================================
+// preload()
+// Runs before setup() to load images and other assets.
+// ============================================================
+function preload() {
+  startScreenImg = loadImage("assets/images/startscreen.png");
+  optionScreenImg = loadImage("assets/images/Opening_screen.png");
+}
 
 // ============================================================
 // setup()
@@ -69,6 +87,8 @@ function draw() {
   // Switch between screens based on the current game state
   if (gameState === STATE_START) {
     drawStartScreen();
+  } else if (gameState === STATE_OPTION) {
+    drawOptionScreen();
   } else if (gameState === STATE_PLAY) {
     drawGameScreen(playerBlobT, npcBlobT);
   } else if (gameState === STATE_OVER) {
@@ -90,6 +110,20 @@ function mousePressed() {
   // --- Start screen ---
   if (gameState === STATE_START) {
     if (isMouseOver(width / 2, 390, 200, 52)) {
+      gameState = STATE_OPTION;
+    }
+  }
+
+  // --- Option screen ---
+  else if (gameState === STATE_OPTION) {
+    let buttonW = 340;
+    let buttonH = 90;
+    let buttonY = 360;
+
+    if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
+      gameState = STATE_PLAY;
+    }
+    if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
       gameState = STATE_PLAY;
     }
   }
