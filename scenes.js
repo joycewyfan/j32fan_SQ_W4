@@ -244,6 +244,7 @@ function drawRainbowPathScreen() {
   if (rainbowPathImg) {
     image(rainbowPathImg, 0, 0, width, height);
     noStroke();
+    fill(0, 100);
     rect(0, 0, width, height);
   }
 
@@ -297,7 +298,7 @@ function drawForestShortcutScreen() {
   if (forestShortcutImg) {
     image(forestShortcutImg, 0, 0, width, height);
     noStroke();
-    fill(0);
+    fill(0, 100);
     rect(0, 0, width, height);
   }
 
