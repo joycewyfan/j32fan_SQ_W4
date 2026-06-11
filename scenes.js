@@ -125,7 +125,7 @@ function drawStartScreen() {  // Background image
   fill(255);
   textAlign(CENTER);
   textSize(48);
-  text("Getting Over it Together", width / 2, 80);
+  text("Getting Over it Together", width / 2, 60);
   textAlign(LEFT);
   textSize(16);
   textLeading(22);
@@ -298,17 +298,16 @@ function drawSquirrelSmileScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(36);
-  text("The squirrel smiles", width / 2, 70);
+  text("The Squirrel Smiles", width / 2, 60);
 
   fill(200);
   textSize(14);
-  textLeading(20);
+  textLeading(10);
   textAlign(CENTER, TOP);
   text(
     "The squirrel smiles and wipes away its tears.",
     width / 2,
     110,
-    700,
   );
 
   let option1 = "The Confidence Boost";
@@ -343,17 +342,16 @@ function drawSquirrelWearScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(36);
-  text("Together", width / 2, 70);
+  text("Together", width / 2, 60);
 
   fill(200);
   textSize(14);
-  textLeading(20);
+  textLeading(10);
   textAlign(CENTER, TOP);
   text(
     "The squirrel gasps. Questioning if you really wanted to wear one with it.\n\nTogether you walk toward the festival.",
     width / 2,
     110,
-    700,
   );
 
   let option1 = "Chief Acorn Officer";
@@ -388,17 +386,16 @@ function drawSnailWaitScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(36);
-  text("Hours pass.", width / 2, 70);
+  text("Hours pass.", width / 2, 60);
 
   fill(200);
   textSize(14);
-  textLeading(20);
+  textLeading(10);
   textAlign(CENTER, TOP);
   text(
     "Hours pass.\n\nThe snail inches forward while everyone in line starts chatting.",
     width / 2,
     110,
-    700,
   );
 
   let option1 = "The Patient Path";
@@ -433,17 +430,16 @@ function drawSnailRaceAcceptedScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(36);
-  text("Race Accepted", width / 2, 70);
+  text("Race Accepted", width / 2, 60);
 
   fill(200);
   textSize(14);
-  textLeading(20);
+  textLeading(10);
   textAlign(CENTER, TOP);
   text(
     "The crowd gathers around as the snail accepts.\n\nPotty becomes the referee.",
     width / 2,
     110,
-    700,
   );
 
   let option1 = "The Accidental Book Club";
@@ -478,13 +474,13 @@ function drawEpilogueScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(42);
-  text(endingTitle, width / 2, 90);
+  text(endingTitle, width / 2, 60);
 
   fill(200);
   textSize(16);
   textLeading(22);
   textAlign(CENTER, TOP);
-  text(endingBody, width / 2, 130, 700);
+  text(endingBody, width / 2, 100);
 
   // Play Again button
   drawButton(
