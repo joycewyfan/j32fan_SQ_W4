@@ -198,7 +198,7 @@ function drawOptionScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(42);
-  text("What do you do?", width / 2, 60);
+  text("What do you do?", width / 2, 90);
 
   fill(190);
   textSize(12);
@@ -301,7 +301,7 @@ function drawSquirrelSmileScreen() {
   text("The Squirrel Smiles", width / 2, 60);
 
   fill(200);
-  textSize(14);
+  textSize(12);
   textLeading(10);
   textAlign(CENTER, TOP);
   text(
@@ -345,7 +345,7 @@ function drawSquirrelWearScreen() {
   text("Together", width / 2, 60);
 
   fill(200);
-  textSize(14);
+  textSize(12);
   textLeading(10);
   textAlign(CENTER, TOP);
   text(
@@ -389,7 +389,7 @@ function drawSnailWaitScreen() {
   text("Hours pass.", width / 2, 60);
 
   fill(200);
-  textSize(14);
+  textSize(12);
   textLeading(10);
   textAlign(CENTER, TOP);
   text(
@@ -433,7 +433,7 @@ function drawSnailRaceAcceptedScreen() {
   text("Race Accepted", width / 2, 60);
 
   fill(200);
-  textSize(14);
+  textSize(12);
   textLeading(10);
   textAlign(CENTER, TOP);
   text(
