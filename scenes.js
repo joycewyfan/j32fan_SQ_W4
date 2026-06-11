@@ -474,13 +474,32 @@ function drawEpilogueScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(42);
+  // Draw title
   text(endingTitle, width / 2, 60);
+
+  // If the selected ending has an image, draw it and shift the body down
+  let hasEndingImage = false;
+  if (endingTitle === "The Confidence Boost" && typeof confidenceImg !== 'undefined' && confidenceImg) {
+    push();
+    imageMode(CENTER);
+    image(confidenceImg, width / 2, 160, 420, 200);
+    pop();
+    hasEndingImage = true;
+  } else if (endingTitle === "The Fashion Revolution" && typeof fashionImg !== 'undefined' && fashionImg) {
+    push();
+    imageMode(CENTER);
+    image(fashionImg, width / 2, 160, 420, 200);
+    pop();
+    hasEndingImage = true;
+  }
 
   fill(200);
   textSize(12);
-  textLeading(10);
+  textLeading(22);
   textAlign(CENTER, TOP);
-  text(endingBody, width / 2, 110);
+  // Move the body down if we showed an image so it doesn't overlap
+  let bodyY = hasEndingImage ? 300 : 110;
+  text(endingBody, width / 2, bodyY);
 
   // Play Again button
   drawButton(
