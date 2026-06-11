@@ -291,6 +291,213 @@ function drawRainbowPathScreen() {
 }
 
 // ------------------------------------------------------------
+// drawSquirrelSmileScreen()
+// Shown after choosing to tell the squirrel the hat is amazing.
+// ------------------------------------------------------------
+function drawSquirrelSmileScreen() {
+  fill(255);
+  textAlign(CENTER);
+  textSize(36);
+  text("The squirrel smiles", width / 2, 70);
+
+  fill(200);
+  textSize(14);
+  textLeading(20);
+  textAlign(CENTER, TOP);
+  text(
+    "The squirrel smiles and wipes away its tears.",
+    width / 2,
+    110,
+    700,
+  );
+
+  let option1 = "The Confidence Boost";
+  let option2 = "The Fashion Revolution";
+  let buttonW = 280;
+  let buttonH = 70;
+  let buttonY = 360;
+
+  drawButton(
+    width * 0.25,
+    buttonY,
+    buttonW,
+    buttonH,
+    option1,
+    isMouseOver(width * 0.25, buttonY, buttonW, buttonH),
+  );
+  drawButton(
+    width * 0.75,
+    buttonY,
+    buttonW,
+    buttonH,
+    option2,
+    isMouseOver(width * 0.75, buttonY, buttonW, buttonH),
+  );
+}
+
+// ------------------------------------------------------------
+// drawSquirrelWearScreen()
+// Shown after choosing to offer to wear an acorn hat too.
+// ------------------------------------------------------------
+function drawSquirrelWearScreen() {
+  fill(255);
+  textAlign(CENTER);
+  textSize(36);
+  text("Together", width / 2, 70);
+
+  fill(200);
+  textSize(14);
+  textLeading(20);
+  textAlign(CENTER, TOP);
+  text(
+    "The squirrel gasps. Questioning if you really wanted to wear one with it.\n\nTogether you walk toward the festival.",
+    width / 2,
+    110,
+    700,
+  );
+
+  let option1 = "Chief Acorn Officer";
+  let option2 = "The Acorn Olympics";
+  let buttonW = 280;
+  let buttonH = 70;
+  let buttonY = 360;
+
+  drawButton(
+    width * 0.25,
+    buttonY,
+    buttonW,
+    buttonH,
+    option1,
+    isMouseOver(width * 0.25, buttonY, buttonW, buttonH),
+  );
+  drawButton(
+    width * 0.75,
+    buttonY,
+    buttonW,
+    buttonH,
+    option2,
+    isMouseOver(width * 0.75, buttonY, buttonW, buttonH),
+  );
+}
+
+// ------------------------------------------------------------
+// drawSnailWaitScreen()
+// Shown after choosing to patiently wait your turn.
+// ------------------------------------------------------------
+function drawSnailWaitScreen() {
+  fill(255);
+  textAlign(CENTER);
+  textSize(36);
+  text("Hours pass.", width / 2, 70);
+
+  fill(200);
+  textSize(14);
+  textLeading(20);
+  textAlign(CENTER, TOP);
+  text(
+    "Hours pass.\n\nThe snail inches forward while everyone in line starts chatting.",
+    width / 2,
+    110,
+    700,
+  );
+
+  let option1 = "The Patient Path";
+  let option2 = "The Race";
+  let buttonW = 280;
+  let buttonH = 70;
+  let buttonY = 360;
+
+  drawButton(
+    width * 0.25,
+    buttonY,
+    buttonW,
+    buttonH,
+    option1,
+    isMouseOver(width * 0.25, buttonY, buttonW, buttonH),
+  );
+  drawButton(
+    width * 0.75,
+    buttonY,
+    buttonW,
+    buttonH,
+    option2,
+    isMouseOver(width * 0.75, buttonY, buttonW, buttonH),
+  );
+}
+
+// ------------------------------------------------------------
+// drawSnailRaceAcceptedScreen()
+// Shown after choosing to challenge the snail to a race.
+// ------------------------------------------------------------
+function drawSnailRaceAcceptedScreen() {
+  fill(255);
+  textAlign(CENTER);
+  textSize(36);
+  text("Race Accepted", width / 2, 70);
+
+  fill(200);
+  textSize(14);
+  textLeading(20);
+  textAlign(CENTER, TOP);
+  text(
+    "The crowd gathers around as the snail accepts.\n\nPotty becomes the referee.",
+    width / 2,
+    110,
+    700,
+  );
+
+  let option1 = "The Accidental Book Club";
+  let option2 = "The Participation Parade";
+  let buttonW = 280;
+  let buttonH = 70;
+  let buttonY = 360;
+
+  drawButton(
+    width * 0.25,
+    buttonY,
+    buttonW,
+    buttonH,
+    option1,
+    isMouseOver(width * 0.25, buttonY, buttonW, buttonH),
+  );
+  drawButton(
+    width * 0.75,
+    buttonY,
+    buttonW,
+    buttonH,
+    option2,
+    isMouseOver(width * 0.75, buttonY, buttonW, buttonH),
+  );
+}
+
+// ------------------------------------------------------------
+// drawEpilogueScreen()
+// Shows the selected ending stored in `endingTitle`/`endingBody`.
+// ------------------------------------------------------------
+function drawEpilogueScreen() {
+  fill(255);
+  textAlign(CENTER);
+  textSize(42);
+  text(endingTitle, width / 2, 90);
+
+  fill(200);
+  textSize(16);
+  textLeading(22);
+  textAlign(CENTER, TOP);
+  text(endingBody, width / 2, 130, 700);
+
+  // Play Again button
+  drawButton(
+    width / 2,
+    390,
+    220,
+    52,
+    "Play Again",
+    isMouseOver(width / 2, 390, 220, 52),
+  );
+}
+
+// ------------------------------------------------------------
 // drawForestShortcutScreen()
 // Shows the story after choosing the forest shortcut.
 // ------------------------------------------------------------
@@ -308,12 +515,13 @@ function drawForestShortcutScreen() {
   text("Forest Shortcut", width / 2, 60);
 
   fill(200);
-  textSize(16);
+  textSize(12);
   textLeading(10);
   text(
-    "The shortcut is blocked by a snail directing traffic. The snail moves at the speed of existential dread. A huge line has formed behind it. Everyone looks mildly annoyed but too polite to complain.",
+    "The shortcut is blocked by a snail directing traffic. The snail moves at the speed of existential dread. \n\n" + 
+    "A huge line has formed behind it. Everyone looks mildly annoyed but too polite to complain.",
     width / 2,
-    110,
+    90
   );
 
   let option1 = "Patiently wait your turn.";

@@ -25,11 +25,20 @@
 const STATE_START = "start";
 const STATE_OPTION = "option";
 const STATE_RAINBOW_PATH = "rainbow_path";
+const STATE_SQUIRREL_SMILE = "squirrel_smile";
+const STATE_SQUIRREL_WEAR = "squirrel_wear";
 const STATE_FOREST_SHORTCUT = "forest_shortcut";
+const STATE_SNAIL_WAIT = "snail_wait";
+const STATE_SNAIL_RACE_ACCEPT = "snail_race_accept";
+const STATE_EPILOGUE = "epilogue";
 const STATE_PLAY  = "play";
 const STATE_OVER  = "over";
 
 let gameState = STATE_START;
+
+// Ending display variables (used by the generic epilogue screen)
+let endingTitle = "";
+let endingBody = "";
 
 // ------------------------------------------------------------
 // BLOB ANIMATION TIMERS
@@ -97,8 +106,18 @@ function draw() {
     drawOptionScreen();
   } else if (gameState === STATE_RAINBOW_PATH) {
     drawRainbowPathScreen();
+  } else if (gameState === STATE_SQUIRREL_SMILE) {
+    drawSquirrelSmileScreen();
+  } else if (gameState === STATE_SQUIRREL_WEAR) {
+    drawSquirrelWearScreen();
   } else if (gameState === STATE_FOREST_SHORTCUT) {
     drawForestShortcutScreen();
+  } else if (gameState === STATE_SNAIL_WAIT) {
+    drawSnailWaitScreen();
+  } else if (gameState === STATE_SNAIL_RACE_ACCEPT) {
+    drawSnailRaceAcceptedScreen();
+  } else if (gameState === STATE_EPILOGUE) {
+    drawEpilogueScreen();
   } else if (gameState === STATE_PLAY) {
     drawGameScreen(playerBlobT, npcBlobT);
   } else if (gameState === STATE_OVER) {
@@ -140,29 +159,113 @@ function mousePressed() {
 
   // --- Rainbow branch screen ---
   else if (gameState === STATE_RAINBOW_PATH) {
-    let buttonW = 340;
-    let buttonH = 90;
+    // left: Tell the squirrel the hat is amazing
+    // right: Offer to wear an acorn hat too
+    let buttonW = 280;
+    let buttonH = 70;
     let buttonY = 360;
 
     if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
-      gameState = STATE_PLAY;
+      gameState = STATE_SQUIRREL_SMILE;
     }
     if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
-      gameState = STATE_PLAY;
+      gameState = STATE_SQUIRREL_WEAR;
     }
   }
 
   // --- Forest branch screen ---
   else if (gameState === STATE_FOREST_SHORTCUT) {
-    let buttonW = 340;
-    let buttonH = 90;
+    // left: Patiently wait your turn
+    // right: Challenge the snail to a race
+    let buttonW = 280;
+    let buttonH = 70;
     let buttonY = 360;
 
     if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
-      gameState = STATE_PLAY;
+      gameState = STATE_SNAIL_WAIT;
     }
     if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
-      gameState = STATE_PLAY;
+      gameState = STATE_SNAIL_RACE_ACCEPT;
+    }
+  }
+
+  // --- Squirrel smile screen ---
+  else if (gameState === STATE_SQUIRREL_SMILE) {
+    let buttonW = 280;
+    let buttonH = 70;
+    let buttonY = 360;
+
+    if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
+      endingTitle = "The Confidence Boost";
+      endingBody = "The squirrel beams with confidence. You both dance up the final ridge.";
+      gameState = STATE_EPILOGUE;
+    }
+    if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
+      endingTitle = "The Fashion Revolution";
+      endingBody = "The acorn hat becomes the new trend at the festival.";
+      gameState = STATE_EPILOGUE;
+    }
+  }
+
+  // --- Squirrel wear-together screen ---
+  else if (gameState === STATE_SQUIRREL_WEAR) {
+    let buttonW = 280;
+    let buttonH = 70;
+    let buttonY = 360;
+
+    if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
+      endingTitle = "Chief Acorn Officer";
+      endingBody = "You and the squirrel form an acorn-led council at the festival.";
+      gameState = STATE_EPILOGUE;
+    }
+    if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
+      endingTitle = "The Acorn Olympics";
+      endingBody = "You compete in ceremonial acorn-throwing and win surprising glory.";
+      gameState = STATE_EPILOGUE;
+    }
+  }
+
+  // --- Snail wait screen ---
+  else if (gameState === STATE_SNAIL_WAIT) {
+    let buttonW = 280;
+    let buttonH = 70;
+    let buttonY = 360;
+
+    if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
+      endingTitle = "The Patient Path";
+      endingBody = "Patience rewards you with quiet conversations and new friends in line.";
+      gameState = STATE_EPILOGUE;
+    }
+    if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
+      endingTitle = "The Race";
+      endingBody = "You sprint past the line in a blur; the snail is oddly proud.";
+      gameState = STATE_EPILOGUE;
+    }
+  }
+
+  // --- Snail race accepted screen ---
+  else if (gameState === STATE_SNAIL_RACE_ACCEPT) {
+    let buttonW = 280;
+    let buttonH = 70;
+    let buttonY = 360;
+
+    if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
+      endingTitle = "The Accidental Book Club";
+      endingBody = "The crowd turns the race into a storytelling circle; you find a new hobby.";
+      gameState = STATE_EPILOGUE;
+    }
+    if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
+      endingTitle = "The Participation Parade";
+      endingBody = "Everyone cheers as you and the snail take a ceremonial lap.";
+      gameState = STATE_EPILOGUE;
+    }
+  }
+
+  // --- Epilogue / ending screen ---
+  else if (gameState === STATE_EPILOGUE) {
+    if (isMouseOver(width / 2, 390, 220, 52)) {
+      // Restart at the title screen
+      gameState = STATE_START;
     }
   }
 
