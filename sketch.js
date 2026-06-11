@@ -215,7 +215,7 @@ function mousePressed() {
 
     if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
       endingTitle = "Chief Acorn Officer";
-      endingBody = "You compliment the squirrel too enthusiastically. The squirrel hires you as Chief Acorn Officer. Your only job: rating acorns from 1 to 10.\n\nBe careful what you're good at.";
+      endingBody = "You compliment the squirrel too enthusiastically. The squirrel hires you as Chief Acorn Officer.\n\nYour only job: rating acorns from 1 to 10.\n\nBe careful what you're good at.";
       gameState = STATE_EPILOGUE;
     }
     if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
