@@ -197,12 +197,12 @@ function mousePressed() {
 
     if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
       endingTitle = "The Confidence Boost";
-      endingBody = "The squirrel beams with confidence. You both dance up the final ridge.";
+      endingBody = "The squirrel beams. It turns out the squirrel is the festival's head designer.\n\nYou receive a limited-edition rainbow acorn trophy.\n\nSometimes people just need encouragement";
       gameState = STATE_EPILOGUE;
     }
     if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
       endingTitle = "The Fashion Revolution";
-      endingBody = "The acorn hat becomes the new trend at the festival.";
+      endingBody = "You put on an acorn hat. Everyone at the festival copies you.\n\nBy lunchtime, acorn hats are the hottest trend.\n\nEmpathy can mean joining someone rather than fixing their problem.";
       gameState = STATE_EPILOGUE;
     }
   }
@@ -215,12 +215,12 @@ function mousePressed() {
 
     if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
       endingTitle = "Chief Acorn Officer";
-      endingBody = "You and the squirrel form an acorn-led council at the festival.";
+      endingBody = "You compliment the squirrel too enthusiastically. The squirrel hires you as Chief Acorn Officer. Your only job: rating acorns from 1 to 10.\n\nBe careful what you're good at.";
       gameState = STATE_EPILOGUE;
     }
     if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
       endingTitle = "The Acorn Olympics";
-      endingBody = "You compete in ceremonial acorn-throwing and win surprising glory.";
+      endingBody = "Your matching hat inspires chaos. You accidentally start the Acorn Olympics.\n\nNobody remembers why.\n\nSometimes chaos creates community.";
       gameState = STATE_EPILOGUE;
     }
   }
@@ -233,12 +233,12 @@ function mousePressed() {
 
     if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
       endingTitle = "The Patient Path";
-      endingBody = "Patience rewards you with quiet conversations and new friends in line.";
+      endingBody = "You wait behind the snail. Eventually, the snail reveals it was testing everyone's patience.\n\nYou win the Golden Chill Award.\n\nNot every obstacle needs to be fought.";
       gameState = STATE_EPILOGUE;
     }
     if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
       endingTitle = "The Race";
-      endingBody = "You sprint past the line in a blur; the snail is oddly proud.";
+      endingBody = "You challenge the snail. The race lasts three hours.\n\nThe snail wins. Nobody knows how.\n\nLife isn't always fair, and that's okay.";
       gameState = STATE_EPILOGUE;
     }
   }
@@ -251,12 +251,12 @@ function mousePressed() {
 
     if (isMouseOver(width * 0.25, buttonY, buttonW, buttonH)) {
       endingTitle = "The Accidental Book Club";
-      endingBody = "The crowd turns the race into a storytelling circle; you find a new hobby.";
+      endingBody = "While waiting, everyone in line becomes friends.\n\nYou accidentally create the world's largest book club.\n\nGood things can happen while you're waiting.";
       gameState = STATE_EPILOGUE;
     }
     if (isMouseOver(width * 0.75, buttonY, buttonW, buttonH)) {
       endingTitle = "The Participation Parade";
-      endingBody = "Everyone cheers as you and the snail take a ceremonial lap.";
+      endingBody = "You lose the race so dramatically that the crowd throws you a participation parade.\n\nFailure can still bring people together.";
       gameState = STATE_EPILOGUE;
     }
   }
