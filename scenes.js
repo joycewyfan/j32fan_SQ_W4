@@ -125,7 +125,7 @@ function drawStartScreen() {  // Background image
   fill(255);
   textAlign(CENTER);
   textSize(48);
-  text("Getting Over it Together", width / 2, 60);
+  text("Getting Over it Together", width / 2, 80);
   textAlign(LEFT);
   textSize(16);
   textLeading(22);
@@ -198,7 +198,7 @@ function drawOptionScreen() {
   fill(255);
   textAlign(CENTER);
   textSize(42);
-  text("What do you do?", width / 2, 90);
+  text("What do you do?", width / 2, 60);
 
   fill(190);
   textSize(12);
