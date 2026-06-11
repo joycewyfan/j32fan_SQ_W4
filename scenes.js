@@ -478,9 +478,9 @@ function drawEpilogueScreen() {
 
   fill(200);
   textSize(12);
-  textLeading(22);
+  textLeading(10);
   textAlign(CENTER, TOP);
-  text(endingBody, width / 2, 100);
+  text(endingBody, width / 2, 110);
 
   // Play Again button
   drawButton(
