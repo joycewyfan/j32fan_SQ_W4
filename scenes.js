@@ -91,6 +91,70 @@ function drawButton(x, y, w, h, label, isHovered) {
 }
 
 // ------------------------------------------------------------
+// drawPottyCat(x, y, r, t)
+// Draws Potty as a simple orange cat blob with ears and scar.
+// ------------------------------------------------------------
+function drawPottyCat(x, y, r, t) {
+  push();
+  noStroke();
+  fill(255, 150, 30);
+
+  beginShape();
+  let numPoints = 48;
+  for (let i = 0; i < numPoints; i++) {
+    let angle = (TWO_PI / numPoints) * i;
+    let noiseVal = noise(cos(angle) * 0.8 + t, sin(angle) * 0.8 + t);
+    let nr = r + map(noiseVal, 0, 1, -8, 8);
+    vertex(x + cos(angle) * nr, y + sin(angle) * nr);
+  }
+  endShape(CLOSE);
+
+  // Ears
+  fill(255, 140, 30);
+  triangle(x - r * 0.55, y - r * 0.65, x - r * 0.3, y - r * 1.15, x - r * 0.05, y - r * 0.55);
+  triangle(x + r * 0.55, y - r * 0.65, x + r * 0.3, y - r * 1.15, x + r * 0.05, y - r * 0.55);
+
+  fill(255, 190, 100);
+  triangle(x - r * 0.47, y - r * 0.66, x - r * 0.29, y - r * 1.0, x - r * 0.1, y - r * 0.6);
+  triangle(x + r * 0.47, y - r * 0.66, x + r * 0.29, y - r * 1.0, x + r * 0.1, y - r * 0.6);
+
+  // Eyes
+  fill(10);
+  ellipse(x - 12, y - 10, 10, 10);
+  ellipse(x + 12, y - 10, 10, 10);
+
+  // Scar on the left eye
+  stroke(10);
+  strokeWeight(3);
+  line(x - 16, y - 18, x - 16, y - 2);
+  noStroke();
+
+  pop();
+}
+
+// ------------------------------------------------------------
+// drawTealBlobAndPotty()
+// Draws the teal blob and Potty cat used on plain screens.
+// ------------------------------------------------------------
+function drawTealBlobAndPotty() {
+  push();
+  let blobX = width / 3;
+  let blobY = height / 2;
+  drawBlob(blobX, blobY, 50, color(0, 200, 180), frameCount * 0.015);
+
+  let pottyX = blobX + 250;
+  let pottyY = blobY + 10;
+  drawPottyCat(pottyX, pottyY, 50, frameCount * 0.015 + 50);
+
+  fill(255, 220, 0);
+  noStroke();
+  textSize(14);
+  textAlign(CENTER, CENTER);
+  text("Potty", pottyX, pottyY + 70);
+  pop();
+}
+
+// ------------------------------------------------------------
 // isMouseOver(x, y, w, h)
 // Returns true if the mouse cursor is currently inside the
 // rectangle defined by centre (x, y) and dimensions (w, h).
@@ -140,13 +204,13 @@ function drawStartScreen() {  // Background image
   // Blobs — animated using frameCount since blobT isn't
   // available here (it lives in sketch.js)
   drawBlob(480, 300, 50, color(0, 200, 180), frameCount * 0.015);
-  drawBlob(600, 300, 50, color(255, 150, 30), frameCount * 0.015 + 50);
+  drawPottyCat(600, 300, 50, frameCount * 0.015 + 50);
 
-  // Potty label for the orange blob
+  // Potty label for the cat blob
   fill(255, 220, 0);
   textSize(14);
   textAlign(CENTER, CENTER);
-  text("Potty", 580, 365);
+  text("Potty", 600, 365);
 
   // Speech bubble for the NPC
   push();
@@ -310,6 +374,8 @@ function drawSquirrelSmileScreen() {
     110,
   );
 
+  drawTealBlobAndPotty();
+
   let option1 = "The Confidence Boost";
   let option2 = "The Fashion Revolution";
   let buttonW = 280;
@@ -353,6 +419,8 @@ function drawSquirrelWearScreen() {
     width / 2,
     110,
   );
+
+  drawTealBlobAndPotty();
 
   let option1 = "Chief Acorn Officer";
   let option2 = "The Acorn Olympics";
@@ -398,6 +466,8 @@ function drawSnailWaitScreen() {
     110,
   );
 
+  drawTealBlobAndPotty();
+
   let option1 = "The Patient Path";
   let option2 = "The Race";
   let buttonW = 280;
@@ -442,6 +512,8 @@ function drawSnailRaceAcceptedScreen() {
     110,
   );
 
+  drawTealBlobAndPotty();
+
   let option1 = "The Accidental Book Club";
   let option2 = "The Participation Parade";
   let buttonW = 280;
@@ -485,6 +557,18 @@ function drawEpilogueScreen() {
     image(fashionImg, 0, 0, width, height);
     pop();
     usedBackground = true;
+  } else if (endingTitle === "Chief Acorn Officer" && typeof chiefAcornOfficerImg !== 'undefined' && chiefAcornOfficerImg) {
+    push();
+    imageMode(CORNER);
+    image(chiefAcornOfficerImg, 0, 0, width, height);
+    pop();
+    usedBackground = true;
+  } else if (endingTitle === "The Acorn Olympics" && typeof acornOlympicsImg !== 'undefined' && acornOlympicsImg) {
+    push();
+    imageMode(CORNER);
+    image(acornOlympicsImg, 0, 0, width, height);
+    pop();
+    usedBackground = true;
   }
 
   // Dark overlay to keep text readable over images
@@ -492,6 +576,8 @@ function drawEpilogueScreen() {
     noStroke();
     fill(0, 140);
     rect(0, 0, width, height);
+  } else {
+    drawTealBlobAndPotty();
   }
 
   // Draw title and body text on top
@@ -543,7 +629,7 @@ function drawForestShortcutScreen() {
     "The shortcut is blocked by a snail directing traffic. The snail moves at the speed of existential dread. \n\n" + 
     "A huge line has formed behind it. Everyone looks mildly annoyed but too polite to complain.",
     width / 2,
-    90
+    110
   );
 
   let option1 = "Patiently wait your turn.";

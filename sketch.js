@@ -69,6 +69,8 @@ let rainbowPathImg;
 let forestShortcutImg;
 let confidenceImg;
 let fashionImg;
+let chiefAcornOfficerImg;
+let acornOlympicsImg;
 
 // ============================================================
 // preload()
@@ -81,6 +83,8 @@ function preload() {
   forestShortcutImg = loadImage("assets/images/Forest Shortcut.png");
   confidenceImg = loadImage("assets/images/The Confidence Boost.png");
   fashionImg = loadImage("assets/images/The Fashion Revolution.png");
+  chiefAcornOfficerImg = loadImage("assets/images/Chief Acorn Officer.png");
+  acornOlympicsImg = loadImage("assets/images/The Acorn Olympics.jpg");
 }
 
 // ============================================================
