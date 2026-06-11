@@ -477,7 +477,7 @@ function drawEpilogueScreen() {
   text(endingTitle, width / 2, 60);
 
   fill(200);
-  textSize(16);
+  textSize(12);
   textLeading(22);
   textAlign(CENTER, TOP);
   text(endingBody, width / 2, 100);
