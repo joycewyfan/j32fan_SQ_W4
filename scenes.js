@@ -123,9 +123,9 @@ function drawStartScreen() {  // Background image
   // Title 
   // Story text
   fill(255);
-  textAlign(CENTER);
+  textAlign(CENTER, TOP);
   textSize(48);
-  text("Getting Over it Together", width / 2, 80);
+  text("Getting Over it Together", width / 2, 40);
   textAlign(LEFT);
   textSize(16);
   textLeading(22);
@@ -145,7 +145,7 @@ function drawStartScreen() {  // Background image
   // Potty label for the orange blob
   fill(255, 220, 0);
   textSize(14);
-  textAlign(CENTER);
+  textAlign(CENTER, CENTER);
   text("Potty", 580, 365);
 
   // Speech bubble for the NPC
@@ -196,9 +196,9 @@ function drawOptionScreen() {
   }
 
   fill(255);
-  textAlign(CENTER);
+  textAlign(CENTER, TOP);
   textSize(42);
-  text("What do you do?", width / 2, 90);
+  text("What do you do?", width / 2, 60);
 
   fill(190);
   textSize(12);
@@ -249,7 +249,7 @@ function drawRainbowPathScreen() {
   }
 
   fill(255);
-  textAlign(CENTER);
+  textAlign(CENTER, TOP);
   textSize(42);
   text("Rainbow Path", width / 2, 60);
 
@@ -296,7 +296,7 @@ function drawRainbowPathScreen() {
 // ------------------------------------------------------------
 function drawSquirrelSmileScreen() {
   fill(255);
-  textAlign(CENTER);
+  textAlign(CENTER, TOP);
   textSize(36);
   text("The Squirrel Smiles", width / 2, 60);
 
@@ -340,7 +340,7 @@ function drawSquirrelSmileScreen() {
 // ------------------------------------------------------------
 function drawSquirrelWearScreen() {
   fill(255);
-  textAlign(CENTER);
+  textAlign(CENTER, TOP);
   textSize(36);
   text("Together", width / 2, 60);
 
@@ -384,7 +384,7 @@ function drawSquirrelWearScreen() {
 // ------------------------------------------------------------
 function drawSnailWaitScreen() {
   fill(255);
-  textAlign(CENTER);
+  textAlign(CENTER, TOP);
   textSize(36);
   text("Hours pass.", width / 2, 60);
 
@@ -428,7 +428,7 @@ function drawSnailWaitScreen() {
 // ------------------------------------------------------------
 function drawSnailRaceAcceptedScreen() {
   fill(255);
-  textAlign(CENTER);
+  textAlign(CENTER, TOP);
   textSize(36);
   text("Race Accepted", width / 2, 60);
 
@@ -471,35 +471,42 @@ function drawSnailRaceAcceptedScreen() {
 // Shows the selected ending stored in `endingTitle`/`endingBody`.
 // ------------------------------------------------------------
 function drawEpilogueScreen() {
-  fill(255);
-  textAlign(CENTER);
-  textSize(42);
-  // Draw title
-  text(endingTitle, width / 2, 60);
-
-  // If the selected ending has an image, draw it and shift the body down
-  let hasEndingImage = false;
+  // If this ending has a dedicated image, draw it full-screen as the background
+  let usedBackground = false;
   if (endingTitle === "The Confidence Boost" && typeof confidenceImg !== 'undefined' && confidenceImg) {
     push();
-    imageMode(CENTER);
-    image(confidenceImg, width / 2, 160, 420, 200);
+    imageMode(CORNER);
+    image(confidenceImg, 0, 0, width, height);
     pop();
-    hasEndingImage = true;
+    usedBackground = true;
   } else if (endingTitle === "The Fashion Revolution" && typeof fashionImg !== 'undefined' && fashionImg) {
     push();
-    imageMode(CENTER);
-    image(fashionImg, width / 2, 160, 420, 200);
+    imageMode(CORNER);
+    image(fashionImg, 0, 0, width, height);
     pop();
-    hasEndingImage = true;
+    usedBackground = true;
   }
 
-  fill(200);
-  textSize(12);
-  textLeading(22);
+  // Dark overlay to keep text readable over images
+  if (usedBackground) {
+    noStroke();
+    fill(0, 140);
+    rect(0, 0, width, height);
+  }
+
+  // Draw title and body text on top
+  fill(255);
   textAlign(CENTER, TOP);
-  // Move the body down if we showed an image so it doesn't overlap
-  let bodyY = hasEndingImage ? 300 : 110;
-  text(endingBody, width / 2, bodyY);
+  textSize(42);
+  text(endingTitle, width / 2, 40);
+
+  fill(230);
+  textSize(14);
+  textLeading(10);
+  textAlign(CENTER, TOP);
+  // If we used a background image, push the body further down
+  let bodyY = usedBackground ? 120 : 110;
+  text(endingBody, width / 2, 110);
 
   // Play Again button
   drawButton(
@@ -525,7 +532,7 @@ function drawForestShortcutScreen() {
   }
 
   fill(255);
-  textAlign(CENTER);
+  textAlign(CENTER, TOP);
   textSize(42);
   text("Forest Shortcut", width / 2, 60);
 

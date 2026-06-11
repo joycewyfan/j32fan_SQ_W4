@@ -79,8 +79,8 @@ function preload() {
   optionScreenImg = loadImage("assets/images/Opening_screen.png");
   rainbowPathImg = loadImage("assets/images/Rainbow Path.png");
   forestShortcutImg = loadImage("assets/images/Forest Shortcut.png");
-  confidenceImg = loadImage("assets/images/confidence_boost.png");
-  fashionImg = loadImage("assets/images/fashion_revolution.png");
+  confidenceImg = loadImage("assets/images/The Confidence Boost.png");
+  fashionImg = loadImage("assets/images/The Fashion Revolution.png");
 }
 
 // ============================================================
